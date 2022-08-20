@@ -1,6 +1,110 @@
 1. Knowledge Checklist
+    - Class Virtual Methods and Abstract Classes
     - Vectors
     - Stacks
     - Command Pattern
 
-2.
+2. Actor Class
+    Public:
+        - Actor(int health, string type);
+        - void DoMove(MoveManager mgr, MoveType, Actor* other) {
+            cout << *this << " used: " << MoveTypeStrings[static_cast<int>(moveType)] << endl;
+            mgr.ExecuteMove(MoveFactory::BuildMove(moveType, this, other));
+        }
+        - Hit(int damage);
+        - Heal(int amount)
+        - GetMoves()
+        - IsDead()
+
+    Protected:
+        - string type;
+        - int health;
+        - vector <MoveType>
+
+3. Ghost::Actor Class
+    - Will have AttackOne and Heal in vector of MoveTypes and 100 health
+
+4. Knight::Actor Class
+    - Will have AttackTwo and Heal in vector of MoveTypes and 100 health
+
+5. Warrior::Actor Class
+    - Will have AttackOne and AttackTwo in vector of MoveTypes and 100 health
+
+6. ActorFactory Class
+    Public:
+        - static Actor* CreateActor(ActorType actor) {
+            switch(actor){
+                case ActorType::Ghost:
+                    return new Ghost;
+                case ActorType::Knight:
+                    return new Knight;
+                case ActorType::Warrior:
+                    return new Warrior;
+                }
+            }
+        }
+
+7. IMove Class
+    Public:
+        - void virtual Execute()=0;
+        - void virtual Undo()=0;
+
+8. BattleMove::IMove Class
+    Private:
+        - Actor* self
+        - Actor* other
+        - Constructor to take self/other pointers
+        - an enum or array of cosnt char * to go with BattleMove (MoveType)
+        - an enum or array of const char * to go with Actor type (ActorType)
+
+9. AttackOne::BattleMove Class
+    - Generate random damage between 10 and 15
+    - Execute will call the hit method of other and save the acutalDamage done in a local variable
+    - Undo will call the Heal method of other with the saved actualDamage variable (to undo the damage)
+
+10. AttackTwo::BattleMove Class
+    - Generate random damage between 0 and 25
+    - Execute will call the hit method of other and save the acutalDamage done in a local variable
+    - Undo will call the Heal method of other with the saved actualDamage variable (to undo the damage)
+
+11. Heal::BattleMove Class
+    - Generate random heal amount between 10 and 15
+    - Execute will call Heal on self with the actual heal amount and save it in a member variable
+    - Undo will call Hit on self to undo the Heal (with amount stored in the member variable)
+
+12. BattleMoveFactory Class
+    Public:
+        static BattleMove* BuildMove(MoveType type, Actor* self, Actor* other){
+            BattleMove* m;
+            Switch(type){
+                case MoveType::AtackOne:
+                    m = new AttackOne(self, other);
+                    break;
+                case MoveType::AttackTwo:
+                    m = new AttackTwo(self, other);
+                    break;
+                case MoveType::Heal:
+                    m = new Heal(self, other);
+                    break;
+                default:
+                    cerr << "Unexistent: " << (int)type;
+                    throw "Non-existent move";
+            }
+            return m;
+        }
+
+13. Stack Template Class
+    - Use the template implementation of a stack from the lecture code on Templates
+
+14. MoveManager Class
+    - Constructor to initialize stack of IMove* 's | referenced by each Actor
+    - Destructor to delete all IMove*'s still in the stack
+    - ExecuteMove(IMove*) >> stack.top()->Execute >> stack.push()
+    - UndoLastMove() - undo last method in stack and delete
+
+15. Runner Class
+    - Prompt User to choose Actor for player 1 and player 2
+    - Allow user to select one of three choices: p1 -> p2 | p2 -> p1 | undo
+    - Handle choice, select random move from Actor's list of moves and DoMove OR undo
+    - check for stackEmpty exception
+    - after a move print the state of each character
