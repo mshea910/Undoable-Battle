@@ -4,10 +4,13 @@
 
 #ifndef PROGRAM3_MICHAELSHEA_ACTORFACTORY_H
 #define PROGRAM3_MICHAELSHEA_ACTORFACTORY_H
-
+#include "../ActorTypes/ghost.h"
+#include "../ActorTypes/knight.h"
+#include "../ActorTypes/warrior.h"
 
 class actorfactory {
-
+public:
+    static actor* CreateActor(ActorType actor);
 };
 
 
