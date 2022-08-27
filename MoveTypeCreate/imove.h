@@ -7,7 +7,9 @@
 
 
 class imove {
-
+public:
+    void virtual Execute()=0;
+    void virtual Undo()=0;
 };
 
 
