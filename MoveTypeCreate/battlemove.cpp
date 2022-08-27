@@ -3,3 +3,8 @@
 //
 
 #include "battlemove.h"
+
+battlemove::battlemove(actor* self, actor* other) {
+    this->self = self;
+    this->other = other;
+}

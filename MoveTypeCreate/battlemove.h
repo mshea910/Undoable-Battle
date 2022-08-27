@@ -4,10 +4,20 @@
 
 #ifndef PROGRAM3_MICHAELSHEA_BATTLEMOVE_H
 #define PROGRAM3_MICHAELSHEA_BATTLEMOVE_H
+#include "../ActorTypeCreate/actor.h"
+#include "imove.h"
 
 
-class battlemove {
+class battlemove : public imove{
+public:
+    battlemove(actor*, actor*);
 
+private:
+    actor* self;
+    actor* other;
+
+    const char* MoveType[]={};
+    const char* ActorType[]={};
 };
 
 
