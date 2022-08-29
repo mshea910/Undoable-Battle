@@ -3,3 +3,8 @@
 //
 
 #include "attackone.h"
+
+attackone::attackone() {
+    int n = 15;
+
+}

@@ -4,10 +4,11 @@
 
 #ifndef PROGRAM3_MICHAELSHEA_ATTACKONE_H
 #define PROGRAM3_MICHAELSHEA_ATTACKONE_H
+#inlcude "../MoveTypeCreate/battlemove.h"
 
-
-class attackone {
-
+class attackone : public battlemove{
+public:
+    attackone();
 };
 
 

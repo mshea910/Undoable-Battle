@@ -7,6 +7,9 @@
 #include "../ActorTypeCreate/actor.h"
 #include "imove.h"
 
+// Defining random number macro to use in attack classes
+#define foo4random() (arc4random() % ((unsigned)n + 1))
+
 
 class battlemove : public imove{
 public:
