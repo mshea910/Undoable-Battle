@@ -77,7 +77,7 @@
         static BattleMove* BuildMove(MoveType type, Actor* self, Actor* other){
             BattleMove* m;
             Switch(type){
-                case MoveType::AtackOne:
+                case MoveType::AttackOne:
                     m = new AttackOne(self, other);
                     break;
                 case MoveType::AttackTwo:

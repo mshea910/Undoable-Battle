@@ -14,13 +14,12 @@
 class battlemove : public imove{
 public:
     battlemove(actor*, actor*);
+
     actor* self;
     actor* other;
 
-private:
-
-    const char* MoveType[]={};
-    const char* ActorType[]={};
+    enum MoveType{AttackOne, AttackTwo, Heal};
+    enum ActorType{Ghost, Warrior, Knight};
 };
 
 
