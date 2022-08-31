@@ -8,7 +8,12 @@
 
 class attackone : public battlemove{
 public:
-    attackone();
+    attackone(actor* self, actor* other);
+    void Execute() override;
+    void Undo() override;
+
+private:
+    int damage;
 };
 
 

@@ -4,7 +4,15 @@
 
 #include "attackone.h"
 
-attackone::attackone() {
+attackone::attackone(actor* self, actor* other) : battlemove(self, other) {
     int n = 15;
+    damage = foo4random();
+}
 
+void attackone::Execute() {
+    other->Hit(damage);
+}
+
+void attackone::Undo() {
+    other->Heal(damage);
 }

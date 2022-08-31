@@ -14,10 +14,10 @@
 class battlemove : public imove{
 public:
     battlemove(actor*, actor*);
-
-private:
     actor* self;
     actor* other;
+
+private:
 
     const char* MoveType[]={};
     const char* ActorType[]={};
