@@ -10,6 +10,7 @@
 template <class T> class stack {
 public:
     stack();
+    ~stack();
 
     void push(T k);
     T pop();

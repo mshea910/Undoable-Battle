@@ -5,7 +5,7 @@
 #ifndef PROGRAM3_MICHAELSHEA_ACTOR_H
 #define PROGRAM3_MICHAELSHEA_ACTOR_H
 #include <iostream>
-#include "../movemanager.h"
+#include "../GameManagement/movemanager.h"
 #include "movefactory.h"
 
 class actor {
