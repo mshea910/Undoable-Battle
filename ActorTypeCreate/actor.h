@@ -5,22 +5,23 @@
 #ifndef PROGRAM3_MICHAELSHEA_ACTOR_H
 #define PROGRAM3_MICHAELSHEA_ACTOR_H
 #include <iostream>
+#include <vector>
 #include "../GameManagement/movemanager.h"
-#include "movefactory.h"
+#include "../CreationFactories/battlemovefactory.h"
 
 class actor {
 public:
     actor(int health, std::string type);
-    void DoMove(movemanager mgr, moveType, actor* other);
-    Hit(int damage);
-    Heal(int amount);
+    void DoMove(movemanager mgr, battlemove::MoveType, actor* other);
+    int Hit(int damage);
+    int Heal(int amount);
     GetMoves();
     IsDead();
 
 protected:
-    string type;
+    std::string type;
     int health;
-    vector <moveType>;
+    std::vector <std::string> MoveType {"AttackOne", "AttackTwo", "Heal"};
 };
 
 

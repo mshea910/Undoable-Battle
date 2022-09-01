@@ -9,9 +9,9 @@ actor::actor(int health, std::string type) {
     this->type = type;
 }
 
-void actor::DoMove(int mgr, int, actor *other) {
-    cout << *this << " used: " << MoveTypeStrings[static_cast<int>(moveType)] << endl;
-    mgr.ExecuteMove(MoveFactory::BuildMove(moveType, this, other));
+void actor::DoMove(movemanager mgr, battlemove::MoveType move, actor *other) {
+    std::cout << *this << " used: " << MoveType[static_cast<int>(move)] << std::endl;
+    mgr.ExecuteMove(battlemovefactory::BuildMove(move, this, other));
 }
 
 int actor::Hit(int damage) {
