@@ -5,7 +5,15 @@
 #ifndef PROGRAM3_MICHAELSHEA_ENUMS_H
 #define PROGRAM3_MICHAELSHEA_ENUMS_H
 
-enum MoveType{AttackOne, AttackTwo, Heal};
-enum Enums{Ghost, Warrior, Knight};
+enum MoveType{
+    AttackOne,
+    AttackTwo,
+    Heal
+};
+enum Enums{
+    Ghost,
+    Warrior,
+    Knight
+};
 
 #endif //PROGRAM3_MICHAELSHEA_ENUMS_H

@@ -18,6 +18,8 @@ private:
     actor* p1;
     actor* p2;
 
+    movemanager* game = new movemanager;
+
 };
 
 
