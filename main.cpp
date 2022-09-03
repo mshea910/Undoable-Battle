@@ -1,6 +1,7 @@
 #include <iostream>
+#include "runner.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    auto* Game = new runner;
     return 0;
 }

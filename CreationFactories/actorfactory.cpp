@@ -4,13 +4,13 @@
 
 #include "actorfactory.h"
 
-static actor* actorfactory::CreateActor(battlemove::ActorType actor) {
+actor* actorfactory::CreateActor(ActorType actor) {
     switch(actor){
-        case battlemove::ActorType::Ghost:
+        case ActorType::Ghost:
             return new ghost;
-        case battlemove::ActorType::Knight:
+        case ActorType::Knight:
             return new knight;
-        case battlemove::ActorType::Warrior:
+        case ActorType::Warrior:
             return new warrior;
     }
 }

@@ -3,6 +3,7 @@
 //
 
 #include "battlemove.h"
+#include "../ActorTypeCreate/actor.h"
 
 battlemove::battlemove(actor* self, actor* other) {
     this->self = self;

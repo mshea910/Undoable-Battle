@@ -5,7 +5,6 @@
 #ifndef PROGRAM3_MICHAELSHEA_BATTLEMOVEFACTORY_H
 #define PROGRAM3_MICHAELSHEA_BATTLEMOVEFACTORY_H
 #include "../MoveTypeCreate/battlemove.h"
-#include "../ActorTypeCreate/actor.h"
 #include "../MoveTypes/attackone.h"
 #include "../MoveTypes/attacktwo.h"
 #include "../MoveTypes/heal.h"
@@ -13,7 +12,9 @@
 
 class battlemovefactory {
 public:
-    static battlemove* BuildMove( battlemove::MoveType type, actor* self, actor* other);
+    battlemovefactory()=default;
+    static battlemove* BuildMove( MoveType type, actor* self, actor* other);
+
 };
 
 

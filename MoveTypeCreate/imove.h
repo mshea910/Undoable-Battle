@@ -4,12 +4,12 @@
 
 #ifndef PROGRAM3_MICHAELSHEA_IMOVE_H
 #define PROGRAM3_MICHAELSHEA_IMOVE_H
-
+#include "../GameManagement/Enums.h"
 
 class imove {
 public:
-    void virtual Execute()=0;
-    void virtual Undo()=0;
+    virtual void Execute()=0;
+    virtual void Undo()=0;
 };
 
 

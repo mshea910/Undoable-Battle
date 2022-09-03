@@ -8,20 +8,24 @@
 #include <vector>
 #include "../GameManagement/movemanager.h"
 #include "../CreationFactories/battlemovefactory.h"
+#include "../GameManagement/Enums.h"
+
 
 class actor {
 public:
     actor(int health, std::string type);
-    void DoMove(movemanager mgr, battlemove::MoveType, actor* other);
+    void DoMove(movemanager mgr, MoveType, actor* other);
     int Hit(int damage);
     int Heal(int amount);
     GetMoves();
     IsDead();
 
+    friend std::ostream &operator<<(std::ostream &output, const actor &a);
+
 protected:
     std::string type;
     int health;
-    std::vector <std::string> MoveType {"AttackOne", "AttackTwo", "Heal"};
+    std::vector <std::string> MoveStrings {"AttackOne", "AttackTwo", "Heal"};
 };
 
 

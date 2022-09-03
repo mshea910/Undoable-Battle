@@ -5,7 +5,7 @@
 #ifndef PROGRAM3_MICHAELSHEA_MOVEMANAGER_H
 #define PROGRAM3_MICHAELSHEA_MOVEMANAGER_H
 #include "stack.h"
-#include "../CreationFactories/battlemovefactory.h"
+#include "../MoveTypeCreate/imove.h"
 
 
 class movemanager {

@@ -3,6 +3,7 @@
 //
 
 #include "attacktwo.h"
+#include "../ActorTypeCreate/actor.h"
 
 attacktwo::attacktwo(actor* self, actor* other) : battlemove(self, other) {
     int n = 25;

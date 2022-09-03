@@ -27,12 +27,18 @@ void runner::ActorChoice(actor* player) {
     std::cout << "Enter a number here: ";
     std::cin >> input;
 
-    player = actorfactory::CreateActor(static_cast<battlemove::ActorType>(input));
+    if(player == p1){
+        p1 = actorfactory::CreateActor(static_cast<ActorType>(input));
+    }  else if(player == p2) {
+        p2 = actorfactory::CreateActor(static_cast<ActorType>(input));
+    } else {
+        std::cout << "\n\nSomething went wrong. Actor sent: " << player << " | Error: 101\n" << std::endl;
+    }
 }
 
 bool runner::GameLoop() {
     int input;
-    battlemove::MoveType chosenMove;
+    MoveType chosenMove;
     battlemove* move;
     std::cout << "Choose an option below..." << std::endl;
     std::cout << "\t1. P1 -> P2\n"

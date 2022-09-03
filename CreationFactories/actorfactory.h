@@ -10,7 +10,8 @@
 
 class actorfactory {
 public:
-    static actor* CreateActor(battlemove::ActorType actor);
+    actorfactory()=default;
+    static actor* CreateActor(ActorType actor);
 };
 
 

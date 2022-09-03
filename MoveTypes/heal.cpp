@@ -3,6 +3,7 @@
 //
 
 #include "heal.h"
+#include "../ActorTypeCreate/actor.h"
 
 heal::heal(actor* self, actor* other) : battlemove(self, other) {
     int n = 5;

@@ -4,12 +4,12 @@
 
 #ifndef PROGRAM3_MICHAELSHEA_BATTLEMOVE_H
 #define PROGRAM3_MICHAELSHEA_BATTLEMOVE_H
-#include "../ActorTypeCreate/actor.h"
 #include "imove.h"
 
 // Defining random number macro to use in attack classes
 #define foo4random() (arc4random() % ((unsigned)n + 1))
 
+class actor;
 
 class battlemove : public imove{
 public:
@@ -17,9 +17,6 @@ public:
 
     actor* self;
     actor* other;
-
-    enum MoveType{AttackOne, AttackTwo, Heal};
-    enum ActorType{Ghost, Warrior, Knight};
 };
 
 

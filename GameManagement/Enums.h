@@ -10,7 +10,7 @@ enum MoveType{
     AttackTwo,
     Heal
 };
-enum Enums{
+enum ActorType{
     Ghost,
     Warrior,
     Knight

@@ -9,8 +9,8 @@ actor::actor(int health, std::string type) {
     this->type = type;
 }
 
-void actor::DoMove(movemanager mgr, battlemove::MoveType move, actor *other) {
-    std::cout << *this << " used: " << MoveType[static_cast<int>(move)] << std::endl;
+void actor::DoMove(movemanager mgr, MoveType move, actor *other) {
+    std::cout << *this << " used: " << MoveStrings[static_cast<int>(move)] << std::endl;
     mgr.ExecuteMove(battlemovefactory::BuildMove(move, this, other));
 }
 
@@ -29,4 +29,8 @@ int actor::GetMoves() {
 
 int actor::IsDead() {
 
+}
+
+std::ostream &operator<<(std::ostream &output, const actor &a) {
+    output << a.type;
 }
