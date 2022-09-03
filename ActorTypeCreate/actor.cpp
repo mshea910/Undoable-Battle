@@ -4,6 +4,7 @@
 
 #include "actor.h"
 
+
 actor::actor(int health, std::string type) {
     this->health = health;
     this->type = type;

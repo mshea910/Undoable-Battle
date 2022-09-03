@@ -11,7 +11,7 @@ class runner {
 public:
     runner();
 
-    void ActorChoice(actor*);
+    bool ActorChoice(actor*);
     bool GameLoop();
 
 private:

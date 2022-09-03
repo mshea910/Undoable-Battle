@@ -3,23 +3,33 @@
 //
 
 #include "runner.h"
+
+
 runner::runner() {
     bool loopVar = true;
+
     std::cout << "\tWelcome to the Battle Zone!\n\n" << std::endl;
-    std::cout << "Please choose the first contender...\n" << std::endl;
-    ActorChoice(p1);
-    std::cout << "\n\nPlease choose the second contender...\n" << std::endl;
-    ActorChoice(p2);
+    while(loopVar){
+        std::cout << "Please choose the first contender...\n" << std::endl;
+        ActorChoice(p1);
+    }
+
+    loopVar = true;
+    while(loopVar){
+        std::cout << "\n\nPlease choose the second contender...\n" << std::endl;
+        ActorChoice(p2);
+    }
+
     std::cout << "\n\nExcellent! Let the battle begin!\n" << std::endl;
 
+    loopVar = true;
     while(loopVar){
         loopVar = GameLoop();
     }
 
-
 }
 
-void runner::ActorChoice(actor* player) {
+bool runner::ActorChoice(actor* player) {
     int input;
     std::cout << "\t1. Ghost\n"
                  "\t2. Knight\n"
@@ -29,10 +39,14 @@ void runner::ActorChoice(actor* player) {
 
     if(player == p1){
         p1 = actorfactory::CreateActor(static_cast<ActorType>(input));
+        return false;
     }  else if(player == p2) {
         p2 = actorfactory::CreateActor(static_cast<ActorType>(input));
+        return false;
     } else {
-        std::cout << "\n\nSomething went wrong. Actor sent: " << player << " | Error: 101\n" << std::endl;
+        std::cout << "\n\nSomething went wrong, Please try again! Actor sent: " << player
+        << " | Error: 101\n" << std::endl;
+        return true;
     }
 }
 
@@ -71,6 +85,10 @@ bool runner::GameLoop() {
 
         case 3:
             game->UndoLastMove();
+            return true;
+
+        default:
+            std::cout << "\n\n I'm sorry, that was an invalid selection. Please try again!\n" << std::endl;
             return true;
     }
 }
