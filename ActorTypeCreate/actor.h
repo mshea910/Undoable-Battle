@@ -17,8 +17,8 @@ public:
     void DoMove(movemanager mgr, MoveType, actor* other);
     int Hit(int damage);
     int Heal(int amount);
-    GetMoves();
-    IsDead();
+    MoveType GetMoves();
+    bool IsDead();
 
     friend std::ostream &operator<<(std::ostream &output, const actor &a);
 

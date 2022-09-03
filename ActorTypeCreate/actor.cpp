@@ -23,12 +23,17 @@ int actor::Heal(int amount) {
     return this->health += amount;
 }
 
-int actor::GetMoves() {
-
+MoveType actor::GetMoves() {
+    int n = 3;
+    return MoveType(static_cast<MoveType>(foo4random() -1));
 }
 
-int actor::IsDead() {
-
+bool actor::IsDead() {
+    if(this->health <= 0){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 std::ostream &operator<<(std::ostream &output, const actor &a) {
