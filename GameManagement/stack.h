@@ -6,10 +6,11 @@
 #define PROGRAM3_MICHAELSHEA_STACK_H
 #include <iostream>
 #include <string>
+#include "../MoveTypeCreate/imove.h"
 
 template <class T> class stack {
 public:
-    stack();
+    stack()=default;
     ~stack();
 
     void push(T k);
@@ -19,7 +20,7 @@ public:
     bool isEmpty();
 
 private:
-    int top;
+    int top = -1;
     T st[];
 };
 

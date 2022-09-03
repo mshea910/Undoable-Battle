@@ -4,12 +4,8 @@
 
 #include "stack.h"
 
-template <class T> stack<T>::stack() {
-    top = -1;
-}
-
 template <class T> stack<T>::~stack() {
-    delete[] st;
+    delete[] *st;
 }
 
 template <class T> void stack<T>::push(T k) {
@@ -18,7 +14,7 @@ template <class T> void stack<T>::push(T k) {
 }
 
 template <class T> bool stack<T>::isEmpty() {
-    if (top == -1){
+    if (this->top == -1){
         return true;
     } else {
         return false;
@@ -33,4 +29,13 @@ template <class T> T stack<T>::pop() {
 template <class T> T stack<T>::topElement() {
     T topEl = st[top];
     return topEl;
+}
+
+void linkErrFix(){
+    stack<imove*> myObj;
+    imove* test;
+    myObj.topElement();
+    myObj.isEmpty();
+    myObj.push(test);
+    myObj.pop();
 }

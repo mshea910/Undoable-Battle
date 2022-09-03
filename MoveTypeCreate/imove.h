@@ -8,6 +8,7 @@
 
 class imove {
 public:
+    virtual ~imove()=default;
     virtual void Execute()=0;
     virtual void Undo()=0;
 };

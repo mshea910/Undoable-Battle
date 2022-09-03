@@ -11,13 +11,13 @@ runner::runner() {
     std::cout << "\tWelcome to the Battle Zone!\n\n" << std::endl;
     while(loopVar){
         std::cout << "Please choose the first contender...\n" << std::endl;
-        ActorChoice(p1);
+        loopVar = ActorChoice(p1);
     }
 
     loopVar = true;
     while(loopVar){
         std::cout << "\n\nPlease choose the second contender...\n" << std::endl;
-        ActorChoice(p2);
+        loopVar = ActorChoice(p2);
     }
 
     std::cout << "\n\nExcellent! Let the battle begin!\n" << std::endl;
