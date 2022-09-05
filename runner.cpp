@@ -127,7 +127,7 @@ bool runner::GameLoop() {
 
            // Check if p2 is dead using the IsDead() method and handle accordingly
            if(p2->IsDead()){
-               std::cout << "\n\n\t" << *p1 << " is victorious!!!\n" << std::endl;
+               std::cout << "\n\n\t\t" << *p1 << " is victorious!!!\n" << std::endl;
                return false;
            } else{
                return true;
@@ -143,7 +143,7 @@ bool runner::GameLoop() {
 
             // Check if p1 is dead using the IsDead() method and handle accordingly
             if(p1->IsDead()){
-                std::cout << "\n\n\t" << *p2 << " is victorious!!!\n" << std::endl;
+                std::cout << "\n\n\t\t" << *p2 << " is victorious!!!\n" << std::endl;
                 return false;
             } else{
                 return true;
