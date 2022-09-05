@@ -4,6 +4,7 @@
 
 #include "actorfactory.h"
 
+// Public CreateActor() method which takes an ActorType and returns the corresponding actor subclass object
 actor* actorfactory::CreateActor(ActorType actor) {
     switch(actor){
         case ActorType::Ghost:

@@ -10,21 +10,27 @@
 
 template <class T> class stack {
 public:
+
+    // Template class constructor and destructor
     stack()=default;
     ~stack();
 
-    void push(T k);
-    void pop();
-    T topElement();
+    // Template class methods
+    void Push(T k);
+    void Pop();
 
-    bool isEmpty();
+    // Template class data retrieval methods
+    T TopElement();
+    bool IsEmpty();
 
 private:
+    // template node struct to use with stack
     struct node{
         T data = NULL;
         node* prev = nullptr;
     };
 
+    // top object to hold on to the most recent object pushed on stack
     node* top = new node;
 };
 

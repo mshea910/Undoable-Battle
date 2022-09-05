@@ -10,7 +10,10 @@
 
 class actorfactory {
 public:
+    // Public class constructor
     actorfactory()=default;
+
+    // Static method to create actor
     static actor* CreateActor(ActorType actor);
 };
 

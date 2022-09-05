@@ -8,11 +8,14 @@
 
 class ghost : public actor{
 public:
+    // Public class constructor
     ghost();
 
+    // Virtual method override from actor class
     MoveType GetMoves() override;
 
 protected:
+    // Vector of MoveTypes specific to the Ghost actor
     std::vector <MoveType> GhostMoves {MoveType::Heal, MoveType::AttackOne};
 };
 

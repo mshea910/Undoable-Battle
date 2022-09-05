@@ -9,10 +9,12 @@
 #include "../MoveTypes/attacktwo.h"
 #include "../MoveTypes/heal.h"
 
-
 class battlemovefactory {
 public:
+    // Public class constructor
     battlemovefactory()=default;
+
+    // Public static method to build move
     static battlemove* BuildMove( MoveType type, actor* self, actor* other);
 
 };

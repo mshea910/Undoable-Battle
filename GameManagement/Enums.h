@@ -5,11 +5,14 @@
 #ifndef PROGRAM3_MICHAELSHEA_ENUMS_H
 #define PROGRAM3_MICHAELSHEA_ENUMS_H
 
+// MoveType enum to hold the three move values
 enum MoveType{
     AttackOne,
     AttackTwo,
     Heal
 };
+
+// ActorType enum to hold the three actor values
 enum ActorType{
     Ghost,
     Knight,

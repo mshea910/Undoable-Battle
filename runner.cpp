@@ -6,27 +6,42 @@
 
 
 runner::runner() {
+    char input;
     bool loopVar = true;
 
-    std::cout << "\n\n\tWelcome to the Battle Zone!\n\n" << std::endl;
-    while(loopVar){
-        std::cout << "Please choose the first contender...\n" << std::endl;
-        loopVar = ActorChoice(p1);
+    std::cout << "\n\n\t\tWelcome to the Battle Zone!\n\n" << std::endl;
+
+    while(true) {
+        while(loopVar){
+            std::cout << "Please choose the first contender...\n" << std::endl;
+            loopVar = ActorChoice(p1);
+        }
+
+        loopVar = true;
+        while(loopVar){
+            std::cout << "\n\nPlease choose the second contender...\n" << std::endl;
+            loopVar = ActorChoice(p2);
+        }
+
+        std::cout << "\n\nExcellent! Let the battle begin!\n" << std::endl;
+
+        loopVar = true;
+        while(loopVar){
+            loopVar = GameLoop();
+        }
+
+        std::cout << "\n\nDo you wish to play again? (Y/N)" << std::endl;
+        std::cin >> input;
+
+        if(input == 'N' || input == 'n') {
+            std::cout << "\n\t\tThanks for playing!" << std::endl;
+            break;
+        }else if(input == 'Y' || input == 'y'){
+            std::cout << "\n\t\tAwesome! Let's go again! Setting up game. . ." << std::endl;
+        } else {
+            std::cout << "\n\t\tI'm sorry, that is not a valid option. Defaulting to play again. . ." << std::endl;
+        }
     }
-
-    loopVar = true;
-    while(loopVar){
-        std::cout << "\n\nPlease choose the second contender...\n" << std::endl;
-        loopVar = ActorChoice(p2);
-    }
-
-    std::cout << "\n\nExcellent! Let the battle begin!\n" << std::endl;
-
-    loopVar = true;
-    while(loopVar){
-        loopVar = GameLoop();
-    }
-
 }
 
 bool runner::ActorChoice(actor* player) {

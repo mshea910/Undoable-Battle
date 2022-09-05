@@ -10,12 +10,15 @@
 
 class movemanager {
 public:
+    // Public class constructor
     movemanager();
 
+    // Public class methods
     void ExecuteMove(imove*);
     void UndoLastMove();
 
 private:
+    // Stack of imoves to use with game
     stack<imove*>* gameStack;
 };
 

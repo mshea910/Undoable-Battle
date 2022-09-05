@@ -8,11 +8,14 @@
 
 class knight : public actor{
 public:
+    // Public class constructor
     knight();
 
+    // Virtual method override from actor class
     MoveType GetMoves() override;
 
 protected:
+    // Vector of MoveTypes specific to the Knight actor
     std::vector <MoveType> KnightMoves {MoveType::Heal, MoveType::AttackTwo};
 };
 

@@ -4,7 +4,8 @@
 
 #include "battlemovefactory.h"
 
-
+// Public BuildMove() method which takes a MoveType, the actor performing a move, and the actor receiving the action
+// of the move, builds the corresponding battlemove subclass, and returns the battlemove.
 battlemove *battlemovefactory::BuildMove(MoveType type, actor *self, actor *other) {
     battlemove* m;
     switch(type){

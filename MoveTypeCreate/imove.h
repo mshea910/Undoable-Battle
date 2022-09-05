@@ -8,7 +8,10 @@
 
 class imove {
 public:
+    // virtual destructor set to default if not implemented
     virtual ~imove()=default;
+
+    // virtual Execute and Undo methods
     virtual void Execute()=0;
     virtual void Undo()=0;
 };
