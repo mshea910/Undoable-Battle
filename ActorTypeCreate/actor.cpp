@@ -3,13 +3,12 @@
 //
 
 #include "actor.h"
-
 #include <utility>
 
 
-actor::actor(int health, std::string type) {
+actor::actor(int health, ActorType type) {
     this->health = health;
-    this->type = std::move(type);
+    this->type = type;
 }
 
 void actor::DoMove(movemanager mgr, MoveType move, actor *other) {
@@ -19,16 +18,14 @@ void actor::DoMove(movemanager mgr, MoveType move, actor *other) {
 
 int actor::Hit(int damage) {
     return this->health -= damage;
-
 }
 
 int actor::Heal(int amount) {
     return this->health += amount;
 }
 
-MoveType actor::GetMoves() {
-    int n = 3;
-    return MoveType(static_cast<MoveType>(foo4random() -1));
+int actor::GetHealth() const {
+    return this->health;
 }
 
 bool actor::IsDead() const {
@@ -40,5 +37,5 @@ bool actor::IsDead() const {
 }
 
 std::ostream &operator<<(std::ostream &output, const actor &a) {
-    return output << a.type;
+    return output << a.ActorStrings[static_cast<int>(a.type)];
 }

@@ -9,6 +9,11 @@
 class knight : public actor{
 public:
     knight();
+
+    MoveType GetMoves() override;
+
+protected:
+    std::vector <MoveType> KnightMoves {MoveType::Heal, MoveType::AttackTwo};
 };
 
 

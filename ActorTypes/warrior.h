@@ -9,6 +9,11 @@
 class warrior : public actor{
 public:
     warrior();
+
+    MoveType GetMoves() override;
+
+protected:
+    std::vector <MoveType> WarriorMoves {MoveType::AttackOne, MoveType::AttackTwo};
 };
 
 

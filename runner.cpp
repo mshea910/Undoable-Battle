@@ -8,7 +8,7 @@
 runner::runner() {
     bool loopVar = true;
 
-    std::cout << "\tWelcome to the Battle Zone!\n\n" << std::endl;
+    std::cout << "\n\n\tWelcome to the Battle Zone!\n\n" << std::endl;
     while(loopVar){
         std::cout << "Please choose the first contender...\n" << std::endl;
         loopVar = ActorChoice(p1);
@@ -54,8 +54,8 @@ bool runner::GameLoop() {
     int input;
     MoveType chosenMove;
 
-    std::cout << "P1: " << *p1 << std::endl;
-    std::cout << "P2: " << *p2 << "\n" << std::endl;
+    std::cout << "P1: " << *p1 << " | " << p1->GetHealth() << " HP" << std::endl;
+    std::cout << "P2: " << *p2 << " | " << p2->GetHealth() << " HP" << "\n" << std::endl;
     std::cout << "Choose an option below..." << std::endl;
     std::cout << "\t1. P1 -> P2\n"
                  "\t2. P2 -> P1\n"
@@ -64,20 +64,22 @@ bool runner::GameLoop() {
 
     switch(input){
         case 1:
-           chosenMove = actor::GetMoves();
+           chosenMove = p1->GetMoves();
            p1->DoMove(*game, chosenMove, p2);
 
-           if(p1->IsDead()){
+           if(p2->IsDead()){
+               std::cout << "\n\n\t" << *p1 << " is victorious!!!\n" << std::endl;
                return false;
            } else{
                return true;
            }
 
         case 2:
-            chosenMove = actor::GetMoves();
+            chosenMove = p2->GetMoves();
             p2->DoMove(*game, chosenMove, p1);
 
-            if(p2->IsDead()){
+            if(p1->IsDead()){
+                std::cout << "\n\n\t" << *p2 << " is victorious!!!\n" << std::endl;
                 return false;
             } else{
                 return true;

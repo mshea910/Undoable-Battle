@@ -7,10 +7,6 @@ movemanager::movemanager() {
     gameStack = new stack<imove*>;
 }
 
-movemanager::~movemanager() {
-    delete gameStack;
-}
-
 void movemanager::ExecuteMove(imove * move) {
     move->Execute();
     gameStack->push(move);

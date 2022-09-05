@@ -11,7 +11,6 @@
 class movemanager {
 public:
     movemanager();
-    ~movemanager();
 
     void ExecuteMove(imove*);
     void UndoLastMove();

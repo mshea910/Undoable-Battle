@@ -13,19 +13,21 @@
 
 class actor {
 public:
-    actor(int health, std::string type);
+    actor(int health, ActorType type);
     void DoMove(movemanager mgr, MoveType, actor* other);
     int Hit(int damage);
     int Heal(int amount);
-    static MoveType GetMoves();
+    virtual MoveType GetMoves()=0;
+    [[nodiscard]] int GetHealth() const;
     [[nodiscard]] bool IsDead() const;
 
     friend std::ostream &operator<<(std::ostream &output, const actor &a);
 
 protected:
-    std::string type;
+    ActorType type;
     int health;
     std::vector <std::string> MoveStrings {"Attack One", "Attack Two", "Heal"};
+    std::vector <std::string> ActorStrings {"Ghost", "Knight", "Warrior"};
 };
 
 
