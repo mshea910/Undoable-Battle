@@ -14,6 +14,10 @@ void movemanager::ExecuteMove(imove * move) {
 
 void movemanager::UndoLastMove() {
     imove* lastMove = gameStack->topElement();
+    if(lastMove == nullptr){
+        std::cout << "\n\nI'm sorry, there is nothing left to undo.\n" << std::endl;
+        return;
+    }
     lastMove->Undo();
     gameStack->pop();
 }

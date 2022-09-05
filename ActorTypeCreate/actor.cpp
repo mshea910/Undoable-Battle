@@ -12,7 +12,8 @@ actor::actor(int health, ActorType type) {
 }
 
 void actor::DoMove(movemanager mgr, MoveType move, actor *other) {
-    std::cout << *this << " used: " << MoveStrings[static_cast<int>(move)] << std::endl;
+    int moveNum = static_cast<int>(move);
+    std::cout << *this << " used: " << MoveStrings[moveNum] << "\n" << std::endl;
     mgr.ExecuteMove(battlemovefactory::BuildMove(move, this, other));
 }
 

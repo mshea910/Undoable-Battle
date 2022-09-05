@@ -11,9 +11,11 @@ template <class T> stack<T>::~stack() {
 }
 
 template <class T> void stack<T>::push(T k) {
-    node* temp = top;
-    top->data = k;
-    top->prev = temp;
+    node* newNode = new node;
+
+    newNode->data = k;
+    newNode->prev = top;
+    top = newNode;
 
 }
 
@@ -26,9 +28,15 @@ template <class T> bool stack<T>::isEmpty() {
 }
 
 template <class T> void stack<T>::pop() {
-    node* temp = top;
-    top = top->prev;
-    delete temp;
+    node* temp = new node();
+
+    if(temp == nullptr){
+        return;
+    } else {
+        temp = top;
+        top = top->prev;
+        free(temp);
+    }
 }
 
 template <class T> T stack<T>::topElement() {

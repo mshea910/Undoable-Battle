@@ -21,11 +21,11 @@ public:
 
 private:
     struct node{
-        T data;
-        node* prev;
+        T data = NULL;
+        node* prev = nullptr;
     };
 
-    node* top = nullptr;
+    node* top = new node;
 };
 
 #endif //PROGRAM3_MICHAELSHEA_STACK_H

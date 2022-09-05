@@ -15,5 +15,5 @@ void heal::Execute() {
 }
 
 void heal::Undo() {
-    other->Hit(damage);
+    self->Hit(damage);
 }

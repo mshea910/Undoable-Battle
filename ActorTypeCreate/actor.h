@@ -6,6 +6,7 @@
 #define PROGRAM3_MICHAELSHEA_ACTOR_H
 #include <iostream>
 #include <vector>
+#include <future>
 #include "../GameManagement/movemanager.h"
 #include "../CreationFactories/battlemovefactory.h"
 #include "../GameManagement/Enums.h"
