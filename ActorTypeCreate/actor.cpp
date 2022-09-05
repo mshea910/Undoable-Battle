@@ -4,10 +4,12 @@
 
 #include "actor.h"
 
+#include <utility>
+
 
 actor::actor(int health, std::string type) {
     this->health = health;
-    this->type = type;
+    this->type = std::move(type);
 }
 
 void actor::DoMove(movemanager mgr, MoveType move, actor *other) {
@@ -29,7 +31,7 @@ MoveType actor::GetMoves() {
     return MoveType(static_cast<MoveType>(foo4random() -1));
 }
 
-bool actor::IsDead() {
+bool actor::IsDead() const {
     if(this->health <= 0){
         return true;
     } else {
@@ -38,5 +40,5 @@ bool actor::IsDead() {
 }
 
 std::ostream &operator<<(std::ostream &output, const actor &a) {
-    output << a.type;
+    return output << a.type;
 }

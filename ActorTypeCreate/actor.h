@@ -17,15 +17,15 @@ public:
     void DoMove(movemanager mgr, MoveType, actor* other);
     int Hit(int damage);
     int Heal(int amount);
-    MoveType GetMoves();
-    bool IsDead();
+    static MoveType GetMoves();
+    [[nodiscard]] bool IsDead() const;
 
     friend std::ostream &operator<<(std::ostream &output, const actor &a);
 
 protected:
     std::string type;
     int health;
-    std::vector <std::string> MoveStrings {"AttackOne", "AttackTwo", "Heal"};
+    std::vector <std::string> MoveStrings {"Attack One", "Attack Two", "Heal"};
 };
 
 

@@ -38,10 +38,10 @@ bool runner::ActorChoice(actor* player) {
     std::cin >> input;
 
     if(player == p1){
-        p1 = actorfactory::CreateActor(static_cast<ActorType>(input));
+        p1 = actorfactory::CreateActor(static_cast<ActorType>(input - 1));
         return false;
     }  else if(player == p2) {
-        p2 = actorfactory::CreateActor(static_cast<ActorType>(input));
+        p2 = actorfactory::CreateActor(static_cast<ActorType>(input - 1));
         return false;
     } else {
         std::cout << "\n\nSomething went wrong, Please try again! Actor sent: " << player
@@ -53,7 +53,9 @@ bool runner::ActorChoice(actor* player) {
 bool runner::GameLoop() {
     int input;
     MoveType chosenMove;
-    battlemove* move;
+
+    std::cout << "P1: " << *p1 << std::endl;
+    std::cout << "P2: " << *p2 << "\n" << std::endl;
     std::cout << "Choose an option below..." << std::endl;
     std::cout << "\t1. P1 -> P2\n"
                  "\t2. P2 -> P1\n"
@@ -62,9 +64,8 @@ bool runner::GameLoop() {
 
     switch(input){
         case 1:
-           chosenMove = p1->GetMoves();
-           move = battlemovefactory::BuildMove(chosenMove, p1, p2);
-           game->ExecuteMove(move);
+           chosenMove = actor::GetMoves();
+           p1->DoMove(*game, chosenMove, p2);
 
            if(p1->IsDead()){
                return false;
@@ -73,9 +74,8 @@ bool runner::GameLoop() {
            }
 
         case 2:
-            chosenMove = p2->GetMoves();
-            move = battlemovefactory::BuildMove(chosenMove, p2, p1);
-            game->ExecuteMove(move);
+            chosenMove = actor::GetMoves();
+            p2->DoMove(*game, chosenMove, p1);
 
             if(p2->IsDead()){
                 return false;

@@ -7,11 +7,11 @@
 
 heal::heal(actor* self, actor* other) : battlemove(self, other) {
     int n = 5;
-    damage = (foo4random() + 10);
+    damage = (int(foo4random()) + 10);
 }
 
 void heal::Execute() {
-    other->Heal(damage);
+    self->Heal(damage);
 }
 
 void heal::Undo() {

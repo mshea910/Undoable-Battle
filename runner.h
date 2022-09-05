@@ -15,8 +15,8 @@ public:
     bool GameLoop();
 
 private:
-    actor* p1;
-    actor* p2;
+    actor* p1 = nullptr;
+    actor* p2 = nullptr;
 
     movemanager* game = new movemanager;
 

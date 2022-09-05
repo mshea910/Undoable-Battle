@@ -21,7 +21,7 @@ template <class T> bool stack<T>::isEmpty() {
     }
 }
 
-template <class T> T stack<T>::pop() {
+template <class T> void stack<T>::pop() {
     delete st[top];
     top--;
 }

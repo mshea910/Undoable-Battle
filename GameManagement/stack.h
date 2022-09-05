@@ -14,7 +14,7 @@ public:
     ~stack();
 
     void push(T k);
-    T pop();
+    void pop();
     T topElement();
 
     bool isEmpty();

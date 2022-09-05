@@ -12,8 +12,8 @@ enum MoveType{
 };
 enum ActorType{
     Ghost,
-    Warrior,
-    Knight
+    Knight,
+    Warrior
 };
 
 #endif //PROGRAM3_MICHAELSHEA_ENUMS_H
