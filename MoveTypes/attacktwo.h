@@ -8,11 +8,15 @@
 
 class attacktwo : public battlemove {
 public:
+    // Public class constructor
     attacktwo(actor* self, actor* other);
+
+    // virtual method overrides
     void Execute() override;
     void Undo() override;
 
 private:
+    // Variable to store heal amount (damage)
     int damage;
 };
 

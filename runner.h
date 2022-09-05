@@ -9,15 +9,19 @@
 
 class runner {
 public:
+    // Public class constructor
     runner();
 
+    // Public class methods
     bool ActorChoice(actor*);
     bool GameLoop();
 
 private:
+    // Actor pointers declared
     actor* p1 = nullptr;
     actor* p2 = nullptr;
 
+    // movemanager object created for game
     movemanager* game = new movemanager;
 
 };
