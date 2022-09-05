@@ -5,16 +5,20 @@
 #include "stack.h"
 
 template <class T> stack<T>::~stack() {
-    delete[] *st;
+    while(!isEmpty()){
+        pop();
+    }
 }
 
 template <class T> void stack<T>::push(T k) {
-    top = top + 1;
-    st[top] = k;
+    node* temp = top;
+    top->data = k;
+    top->prev = temp;
+
 }
 
 template <class T> bool stack<T>::isEmpty() {
-    if (this->top == -1){
+    if (this->top == nullptr){
         return true;
     } else {
         return false;
@@ -22,12 +26,13 @@ template <class T> bool stack<T>::isEmpty() {
 }
 
 template <class T> void stack<T>::pop() {
-    delete st[top];
-    top--;
+    node* temp = top;
+    top = top->prev;
+    delete temp;
 }
 
 template <class T> T stack<T>::topElement() {
-    T topEl = st[top];
+    T topEl = top->data;
     return topEl;
 }
 

@@ -20,8 +20,12 @@ public:
     bool isEmpty();
 
 private:
-    int top = -1;
-    T st[];
+    struct node{
+        T data;
+        node* prev;
+    };
+
+    node* top = nullptr;
 };
 
 #endif //PROGRAM3_MICHAELSHEA_STACK_H
